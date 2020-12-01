@@ -1,0 +1,11 @@
+{
+    "name": "baselib",
+    "npmname": "baselib",
+    "umdname": "baselib",
+    "username": "lsxlsxxslxsl",
+    "type": "ts",
+    "module": "umd,esm,commonjs",
+    "test": "mocha",
+    "lang": "zh",
+    "version": "1.6.0"
+}

@@ -1,3 +1,7 @@
+**[baselib - v0.1.0](README.md)**
+
+> [Globals](globals.md)
+
 # [baselib](https://github.com/lsxlsxxslxsl/baselib)
 [![](https://img.shields.io/badge/Powered%20by-jslib%20base-brightgreen.svg)](https://github.com/yanhaijing/jslib-base)
 [![license](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/lsxlsxxslxsl/baselib/blob/master/LICENSE)
