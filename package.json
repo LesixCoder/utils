@@ -42,6 +42,16 @@
     "@js-lib/cli": "^1.6.0",
     "@typescript-eslint/eslint-plugin": "^1.4.2",
     "@typescript-eslint/parser": "^1.4.2",
+    "@vuepress/core": "^1.7.1",
+    "@vuepress/markdown-loader": "^1.7.1",
+    "@vuepress/plugin-active-header-links": "^1.7.1",
+    "@vuepress/plugin-back-to-top": "^1.7.1",
+    "@vuepress/plugin-last-updated": "^1.7.1",
+    "@vuepress/plugin-medium-zoom": "^1.7.1",
+    "@vuepress/plugin-nprogress": "^1.7.1",
+    "@vuepress/plugin-register-components": "^1.7.1",
+    "@vuepress/plugin-search": "^1.7.1",
+    "@vuepress/theme-vue": "^1.7.1",
     "babel-plugin-istanbul": "5.1.0",
     "coveralls": "3.0.2",
     "cross-env": "5.2.0",
@@ -64,8 +74,9 @@
     "typedoc-plugin-markdown": "^3.0.11",
     "typescript": "^4.0.5",
     "vuepress": "^1.7.1",
-    "vuepress-plugin-typedoc": "^0.1.1",
-    "vuepress-theme-reco": "^1.5.7"
+    "vuepress-plugin-container": "^2.1.5",
+    "vuepress-plugin-smooth-scroll": "0.0.10",
+    "vuepress-plugin-typedoc": "^0.1.1"
   },
   "dependencies": {}
 }

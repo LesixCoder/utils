@@ -1,6 +1,0 @@
----
-id: "globals"
-title: ""
----
-
-#

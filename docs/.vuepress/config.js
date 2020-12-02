@@ -1,83 +1,76 @@
-module.exports = {
-    title: "baselib",
-    description: "A simple and beautiful vuepress doc theme .",
-    dest: "public",
+const { path } = require("@vuepress/shared-utils");
+
+module.exports = ctx => ({
+    dest: path.resolve(__dirname, "../../vuepress"),
+    locales: {
+        "/zh/": {
+            lang: "zh-CN",
+            title: "Baselib",
+            description: "基于 Typescript 的工具库"
+        }
+    },
     head: [
-        ["link", { rel: "icon", href: "/favicon.ico" }],
+        ["link", { rel: "icon", href: `/logo.png` }],
+        ["link", { rel: "manifest", href: "/manifest.json" }],
+        ["meta", { name: "theme-color", content: "#3eaf7c" }],
+        ["meta", { name: "apple-mobile-web-app-capable", content: "yes" }],
+        [
+            "meta",
+            { name: "apple-mobile-web-app-status-bar-style", content: "black" }
+        ],
+        [
+            "link",
+            {
+                rel: "apple-touch-icon",
+                href: `/icons/apple-touch-icon-152x152.png`
+            }
+        ],
+        [
+            "link",
+            {
+                rel: "mask-icon",
+                href: "/icons/safari-pinned-tab.svg",
+                color: "#3eaf7c"
+            }
+        ],
         [
             "meta",
             {
-                name: "viewport",
-                content: "width=device-width,initial-scale=1,user-scalable=no"
-            }
-        ]
-    ],
-    theme: "reco",
-    themeConfig: {
-        nav: [
-            { text: "指南", link: "/", icon: "reco-home" },
-            {
-                text: "文档",
-                icon: "reco-api",
-                items: [{ text: "0.x", link: "/docs/theme-reco/" }]
-            },
-            { text: "TimeLine", link: "/timeline/", icon: "reco-date" },
-            {
-                text: "GitLab",
-                icon: "reco-GitLab",
-                link: "https://github.com/lsxlsxxslxsl"
+                name: "msapplication-TileImage",
+                content: "/icons/msapplication-icon-144x144.png"
             }
         ],
-        sidebar: {
-            "/docs/theme-reco/": ["", "theme", "plugin", "api"]
-        },
-        sidebar: [
-            '/',
-            '/page-a',
-            ['/page-b', 'Explicit link text']
-          ],
-        // 自动形成侧边导航
-        // sidebar: 'auto',
-        type: "api",
-        logo: "/logo.png",
-        // 搜索设置
-        search: true,
-        searchMaxSuggestions: 10,
-        // 最后更新时间
-        lastUpdated: "Last Updated",
-        /**
-         * 密钥 (if your blog is private)
-         */
-
-        // keyPage: {
-        //   keys: ['your password'],
-        //   color: '#42b983',
-        //   lineColor: '#42b983'
-        // },
-
-        /**
-         * valine 设置 (if you need valine comment )
-         */
-
-        // valineConfig: {
-        //   appId: '...',// your appId
-        //   appKey: '...', // your appKey
-        // }
-    },
-    markdown: {
-        lineNumbers: true
+        ["meta", { name: "msapplication-TileColor", content: "#000000" }]
+    ],
+    theme: "@vuepress/vue",
+    themeConfig: {
+        smoothScroll: true,
+        locales: {
+            "/zh/": {
+                label: "简体中文",
+                selectText: "选择语言",
+                ariaLabel: "选择语言",
+                editLinkText: "在 GitHub 上编辑此页",
+                lastUpdated: "上次更新",
+                nav: require("./nav/zh"),
+                sidebar: {
+                    "/zh/api/": getApiSidebar(),
+                    "/zh/guide/": getGuideSidebar("指南")
+                }
+            }
+        }
     },
     plugins: [
+        ["@vuepress/back-to-top", true],
+        ["@vuepress/medium-zoom", true],
         [
             "vuepress-plugin-typedoc",
-
-            // plugin options
             {
                 // list of input files relative to docusaurus.config.js
-                inputFiles: ["../../src/"],
+                inputFiles: [path.resolve(__dirname, "../../src")],
 
                 // out directory relative to docs folder (defaults to `api`)
-                out: "api",
+                out: "./aaa",
 
                 // options for auto generated sidebars.json (pass `null` to skip generation completely)
                 sidebar: {
@@ -94,5 +87,20 @@ module.exports = {
                 mode: "modules"
             }
         ]
-    ]
-};
+    ],
+    extraWatchFiles: [".vuepress/nav/zh.js"]
+});
+
+function getApiSidebar() {
+    return [""];
+}
+
+function getGuideSidebar(groupA) {
+    return [
+        {
+            title: groupA,
+            collapsable: false,
+            children: ["", "getting-started"]
+        }
+    ];
+}
