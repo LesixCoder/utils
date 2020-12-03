@@ -5,7 +5,7 @@ module.exports = [
     },
     {
         text: "API",
-        link: "/zh/api/"
+        link: "/zh/api/globals.html"
     },
     {
         text: "了解更多",

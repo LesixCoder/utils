@@ -1,7 +1,21 @@
 /**
+ * 帮助函数库文件
+ * @packageDocumentation
+ */
+
+/**
  * 去除空格
+ * ```html
+ * <my-custom-element>Highlight JS will auto detect the language</my-custom-element>
+ * ```
  * @param {string} str
  * @param {number} type all-所有空格(不传), around-前后空格，left-前空格，right-后空格
+ * @param text  Comment for parameter ´text´.
+ * @typeParam T  Comment for type `T`.
+ * You may also use the template tag.
+ * @template T comment for type `T`.
+ * @returns      Comment for special return value.
+ * @category 设备相关
  */
 
 export const demoTrim =  (str: string, type: string = 'all'): string => {

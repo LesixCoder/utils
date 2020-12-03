@@ -53,10 +53,11 @@ module.exports = ctx => ({
                 editLinkText: "在 GitHub 上编辑此页",
                 lastUpdated: "上次更新",
                 nav: require("./nav/zh"),
-                sidebar: {
-                    "/zh/api/": getApiSidebar(),
-                    "/zh/guide/": getGuideSidebar("指南")
-                }
+                // sidebar: {
+                //     "/zh/api/": getApiSidebar(),
+                //     "/zh/guide/": getGuideSidebar("指南")
+                // }
+                sidebar: 'auto'
             }
         }
     },
@@ -70,12 +71,12 @@ module.exports = ctx => ({
                 inputFiles: [path.resolve(__dirname, "../../src")],
 
                 // out directory relative to docs folder (defaults to `api`)
-                out: "./aaa",
+                out: "./zh/api",
 
                 // options for auto generated sidebars.json (pass `null` to skip generation completely)
                 sidebar: {
                     // display full names with module path if applicable - (defaults to 'false')
-                    fullNames: false,
+                    fullNames: true,
                     // the parent category label for sidebar - (defaults to `none` - no parent category)
                     parentCategory: "none"
                 },
@@ -84,11 +85,14 @@ module.exports = ctx => ({
                 // plugin: ["typedoc-plugin-xyz"],
 
                 // Pass in any additional TypeDoc options (see typedoc --help)
-                mode: "modules"
+                mode: "file",
+                // theme: "minimal",
+                name: '工具库',
+                includeVersion: true
             }
         ]
     ],
-    extraWatchFiles: [".vuepress/nav/zh.js"]
+    extraWatchFiles: [".vuepress/nav/zh.js", "zh/api/**.md"]
 });
 
 function getApiSidebar() {
